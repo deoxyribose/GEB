@@ -1,7 +1,7 @@
 sq :: (Integral a) => a -> [(a, a)]
 sq    k
     | k == 0     = [(1, 2)]
-    | otherwise  = (a, if elem nextn (a:((fst . unzip) hist)) then nextn+1 else nextn):hist
+    | otherwise  = (a, if nextn `elem` (a:((fst . unzip) hist)) then nextn+1 else nextn):hist
     where hist = sq (k-1)
           prev = head $ hist
           a = fst prev + snd prev
